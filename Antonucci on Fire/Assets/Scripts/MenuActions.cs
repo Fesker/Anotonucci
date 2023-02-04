@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class MenuActions : MonoBehaviour
 {
@@ -19,17 +20,17 @@ public class MenuActions : MonoBehaviour
 
     public void PlayAction()
     {
-        if (playScene != null && playScene != "")
+        if (IsValidScene(playScene))
         {
-            Application.LoadLevel(playScene);
+            SceneManager.LoadSceneAsync(playScene);
         }
     }
 
     public void CreditsAction()
     {
-        if (creditsScene != null && creditsScene != "")
+        if (IsValidScene(creditsScene))
         {
-            Application.LoadLevel(creditsScene);
+            SceneManager.LoadSceneAsync(creditsScene);
         }
     }
 
@@ -46,6 +47,11 @@ public class MenuActions : MonoBehaviour
         #if UNITY_EDITOR
             UnityEditor.EditorApplication.isPlaying = false;
         #endif
+    }
+
+    private bool IsValidScene(string sceneName)
+    {
+        return (sceneName != null && sceneName != "" && SceneManager.GetSceneByName(sceneName).IsValid());
     }
 
 }
