@@ -405,6 +405,7 @@ GameObject:
   - component: {fileID: 1046599058}
   - component: {fileID: 1046599057}
   - component: {fileID: 1046599056}
+  - component: {fileID: 1046599060}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -497,6 +498,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1046599060
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046599055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a88a2ab4268e044a97bd8b8c779c8ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  placa1: {fileID: 2021244719}
+  placa2: {fileID: 981674499}
+  placa3: {fileID: 380591760}
+  boton: {fileID: 2004505389}
 --- !u!1 &1815897619
 GameObject:
   m_ObjectHideFlags: 0
@@ -597,7 +614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2004505390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -694,7 +711,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 528304cdd4f7d604990bdc0b40b218dc, type: 3}
+  m_Sprite: {fileID: 21300000, guid: da054ee6d260b9645b9f89e649706548, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

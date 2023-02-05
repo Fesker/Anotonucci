@@ -9,16 +9,16 @@ public class Spawner : MonoBehaviour
 
     void Start()
     {
-        
+       Spawn(); 
     }
 
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            Spawn();
-        }
-    }
+    // void Update()
+    // {
+    //     if (Input.GetKeyDown(KeyCode.Q))
+    //     {
+    //         
+    //     }
+    // }
 
     void Spawn()
     {

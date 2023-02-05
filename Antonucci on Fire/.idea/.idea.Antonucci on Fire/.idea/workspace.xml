@@ -8,6 +8,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Instrucciones.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/Interactable.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/PlayerBehaviour.cs" root0="FORCE_HIGHLIGHTING" />
@@ -94,7 +95,7 @@
       <workItem from="1675521275036" duration="12281000" />
       <workItem from="1675540239713" duration="282000" />
       <workItem from="1675540573891" duration="16730000" />
-      <workItem from="1675604405094" duration="14686000" />
+      <workItem from="1675604405094" duration="16393000" />
     </task>
     <servers />
   </component>
