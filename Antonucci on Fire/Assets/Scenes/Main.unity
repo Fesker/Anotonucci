@@ -1451,7 +1451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef330cfd5d584391bc08273273eb56f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  where:
+  spawnPoints:
   - {fileID: 1934185279}
   - {fileID: 35551534}
   - {fileID: 1753944501}
@@ -1475,13 +1475,12 @@ MonoBehaviour:
   - {fileID: 1535322605}
   - {fileID: 531393816}
   spawneables:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 489272827973012967, guid: 680c243663b59a44ca5aa0ccf279ca96, type: 3}
+  - {fileID: 3615219286690505765, guid: 61458315196fd07449c3bdbe08c0f29d, type: 3}
+  - {fileID: 6976762919260921497, guid: eaa9ff134c510644c9d1384d346ab33b, type: 3}
+  - {fileID: 1050138005166921733, guid: c6114d657f6602b4b9a18ebc402ef662, type: 3}
+  - {fileID: 411634943783192593, guid: a860844300792cf4db78f595d9c25002, type: 3}
+  - {fileID: 5233598213306775463, guid: 7a2499c3c60d76047842b6704d44dda0, type: 3}
 --- !u!4 &917215890
 Transform:
   m_ObjectHideFlags: 0

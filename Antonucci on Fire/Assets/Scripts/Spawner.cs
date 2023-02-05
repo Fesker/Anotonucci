@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Spawner : MonoBehaviour
 {
-    public List<GameObject> where;
+    public List<GameObject> spawnPoints;
     public List<GameObject> spawneables;
 
     void Start()
@@ -14,19 +14,18 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            Spawn();
+        }
     }
 
     void Spawn()
     {
-        
-        // if (spawneable != null)
-        // {
-        //     var spawned = Instantiate(spawneable);
-        //
-        //     int pos = Random.Range(0, where.Count);
-        //
-        //     spawned.transform.position = where[pos].transform.position;
-        // }
+        foreach (var spawnPoint in spawnPoints)
+        {
+            GameObject spawneableGo = spawneables[Random.Range(0, spawnPoints.Count - 1)];
+            Instantiate(spawneableGo, spawnPoint.transform.position, spawneableGo.transform.rotation);
+        }
     }
 }
