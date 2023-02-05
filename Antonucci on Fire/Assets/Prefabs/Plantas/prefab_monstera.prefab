@@ -103,7 +103,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 4865306a1b541f044af0901e9ba8b0ac, type: 3}
   - {fileID: 21300000, guid: 6bf4f858e4cfb174881d05687c261bb5, type: 3}
   - {fileID: 21300000, guid: 1176d5d8cefdf804c8b706dfb4e04da0, type: 3}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: b6fb4ee514449ef438b4e8c044c1db04, type: 3}
   - {fileID: 21300000, guid: faa96e1b5097c404bb5701d4c3a6f6ee, type: 3}
   scoreToAdd: 20
   timer: 0

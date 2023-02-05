@@ -102,8 +102,8 @@ MonoBehaviour:
   plantSprites:
   - {fileID: 21300000, guid: 4865306a1b541f044af0901e9ba8b0ac, type: 3}
   - {fileID: 21300000, guid: 702c75c6fbc4cd24fb94a6288e7b373a, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 6298de7b92834e24fa1f58403578f78a, type: 3}
+  - {fileID: 21300000, guid: b6fb4ee514449ef438b4e8c044c1db04, type: 3}
   - {fileID: 21300000, guid: faa96e1b5097c404bb5701d4c3a6f6ee, type: 3}
   scoreToAdd: 20
   timer: 0
