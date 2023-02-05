@@ -22,7 +22,7 @@ public class MenuActions : MonoBehaviour
     {
         if (IsValidScene(playScene))
         {
-            SceneManager.LoadSceneAsync(playScene);
+            SceneManager.LoadScene(playScene);
         }
     }
 
@@ -30,7 +30,7 @@ public class MenuActions : MonoBehaviour
     {
         if (IsValidScene(creditsScene))
         {
-            SceneManager.LoadSceneAsync(creditsScene);
+            SceneManager.LoadScene(creditsScene);
         }
     }
 
@@ -51,7 +51,7 @@ public class MenuActions : MonoBehaviour
 
     private bool IsValidScene(string sceneName)
     {
-        return (sceneName != null && sceneName != "" && SceneManager.GetSceneByName(sceneName).IsValid());
+        return (sceneName != null && sceneName != "");
     }
 
 }
