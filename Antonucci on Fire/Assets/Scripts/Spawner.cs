@@ -5,7 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public List<GameObject> where;
-    public GameObject spawneable;
+    public List<GameObject> spawneables;
 
     void Start()
     {
@@ -19,13 +19,14 @@ public class Spawner : MonoBehaviour
 
     void Spawn()
     {
-        if (spawneable != null)
-        {
-            var spawned = Instantiate(spawneable);
-
-            int pos = Random.Range(0, where.Count);
-
-            spawned.transform.position = where[pos].transform.position;
-        }
+        
+        // if (spawneable != null)
+        // {
+        //     var spawned = Instantiate(spawneable);
+        //
+        //     int pos = Random.Range(0, where.Count);
+        //
+        //     spawned.transform.position = where[pos].transform.position;
+        // }
     }
 }

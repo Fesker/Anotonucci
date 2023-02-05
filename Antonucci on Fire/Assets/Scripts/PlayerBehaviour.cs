@@ -62,7 +62,6 @@ public class PlayerBehaviour : MonoBehaviour
         if (col.tag != "Mapa")
         {
             interactable = col.GetComponent<Interactable>();
-
             canInteract = interactable != null;
         }
     }
