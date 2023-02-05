@@ -24,7 +24,8 @@ public class Spawner : MonoBehaviour
     {
         foreach (var spawnPoint in spawnPoints)
         {
-            GameObject spawneableGo = spawneables[Random.Range(0, spawnPoints.Count - 1)];
+            //GameObject spawneableGo = spawneables[Random.Range(0, spawnPoints.Count - 1)];
+            GameObject spawneableGo = spawneables[Random.Range(0, 5)];
             Instantiate(spawneableGo, spawnPoint.transform.position, spawneableGo.transform.rotation);
         }
     }

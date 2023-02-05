@@ -19,6 +19,7 @@ public class GameManager : MonoBehaviour
     public GameState gameState;
     public List<Light2D> luces;
     [SerializeField] private GameObject fxVolume;
+    [SerializeField] private GameObject scorePopupReference;
 
     [SerializeField]private float dayLightIntensity;
     [SerializeField]private float lightIntensityMin;
@@ -78,9 +79,10 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
         // Pause / Disable Movement
-        //playerMovement.canMove = false;
+        // playerMovement.canMove = false;
         // Change Scene
-        SceneManager.LoadScene("ScoreScene");
+        // SceneManager.LoadScene("ScoreScene");
+        // scorePopupReference.SetActive(true);
     }
 
     IEnumerator GraduallyReduceIntensity()
@@ -107,8 +109,9 @@ public class GameManager : MonoBehaviour
             }
             
             // Endgame
-            if (dayLightIntensity <= 0.001f)
+            if (dayLightIntensity <= 0.01f)
             {
+                scorePopupReference.SetActive(true);
                 gameState = GameState.End;
             }
             
