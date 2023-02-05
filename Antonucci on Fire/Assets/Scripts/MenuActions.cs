@@ -7,6 +7,8 @@ public class MenuActions : MonoBehaviour
 {
     public string playScene;
     public string creditsScene;
+    public string mainScene;
+    public string scoreScene;
 
     void Start()
     {
@@ -26,6 +28,22 @@ public class MenuActions : MonoBehaviour
         }
     }
 
+    public void MainAction()
+    {
+        if (IsValidScene(mainScene))
+        {
+            SceneManager.LoadScene(mainScene);
+        }
+    }
+    
+    public void ScoreScene()
+    {
+        if (IsValidScene(scoreScene))
+        {
+            SceneManager.LoadScene(scoreScene);
+        }
+    }
+    
     public void CreditsAction()
     {
         if (IsValidScene(creditsScene))

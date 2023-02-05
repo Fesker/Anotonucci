@@ -7,7 +7,7 @@ public class ScoreSceneBehaviour : MonoBehaviour
     
     void Start()
     {
-        scoreText.text = GameManager.Instance.CurrentScore.ToString();
+        scoreText.text = GameManager.Instance.currentScore.ToString();
     }
 
     // Update is called once per frame

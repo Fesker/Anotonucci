@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering.Universal;
@@ -16,17 +17,18 @@ public class GameManager : MonoBehaviour
     }
 
     public GameState gameState;
-
     public List<Light2D> luces;
+    [SerializeField] private GameObject fxVolume;
 
     [SerializeField]private float dayLightIntensity;
     [SerializeField]private float lightIntensityMin;
     private float maxLightIntensity = 1.0f;
-    private float minLightIntensity = .5f;
+    private float minLightIntensity = .3f;
     [SerializeField] private float lightIntensityRate = .1f;
     private PlayerMovement playerMovement;
     public Light2D dayLight;
-    public float CurrentScore;
+    public float currentScore;
+    [SerializeField] private TMP_Text scoreText;
 
     public static GameManager Instance { get; private set; }
 
@@ -45,6 +47,12 @@ public class GameManager : MonoBehaviour
         StartCoroutine(GraduallyReduceIntensity());
 
     }
+    
+        
+    void Start()
+    {
+        scoreText.text = currentScore.ToString();
+    }
 
     private void Update()
     {
@@ -52,6 +60,7 @@ public class GameManager : MonoBehaviour
         {
             case GameState.Playing:
             {
+                scoreText.text = "Score: " + currentScore.ToString();
                 break;
             }
             case GameState.Paused:
@@ -69,14 +78,14 @@ public class GameManager : MonoBehaviour
     private void EndGame()
     {
         // Pause / Disable Movement
-        playerMovement.canMove = false;
+        //playerMovement.canMove = false;
         // Change Scene
         SceneManager.LoadScene("ScoreScene");
     }
 
     IEnumerator GraduallyReduceIntensity()
     {
-        while (dayLight.intensity > minLightIntensity)
+        while (dayLight.intensity > 0)
         {
             float delta =  lightIntensityRate * Time.deltaTime;
             if (delta > dayLightIntensity)
@@ -87,12 +96,20 @@ public class GameManager : MonoBehaviour
             dayLightIntensity -= delta;
             dayLight.intensity = dayLightIntensity;
 
-            if (dayLightIntensity < .5f)
+            // Prendo luces
+            if (dayLightIntensity < .3f)
             {
                 foreach (var luz in luces)
                 {
                     luz.gameObject.SetActive(true);
                 }
+                fxVolume.SetActive(true);
+            }
+            
+            // Endgame
+            if (dayLightIntensity <= 0.001f)
+            {
+                gameState = GameState.End;
             }
             
             yield return null;
@@ -101,8 +118,7 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScore(float amount)
     {
-        CurrentScore += amount;
+        currentScore += amount;
     }
-    
-    
+
 }

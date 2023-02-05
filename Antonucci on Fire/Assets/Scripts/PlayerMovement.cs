@@ -10,10 +10,12 @@ public class PlayerMovement : MonoBehaviour
 
     private Rigidbody2D rb;
     private Vector2 movementDirection;
+    private Animator anim;
 
     void Start()
     {
-        rb = GetComponent < Rigidbody2D>();
+        rb = GetComponent <Rigidbody2D>();
+        anim = GetComponent <Animator>();
     }
 
     void Update()
@@ -23,6 +25,9 @@ public class PlayerMovement : MonoBehaviour
         {
             movementDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical")).normalized;
         }
+        
+        anim.SetFloat("speed", rb.velocity.magnitude);
+        
     }
 
     private void FixedUpdate()

@@ -19,12 +19,18 @@ public class Interactable : MonoBehaviour
     private float deathTime = 10.0f;
     private bool startCount = false;
     private bool plantIsDry = false;
+    [SerializeField] private int scoreToAdd;
+    private int scoreToRest = 10;
     [SerializeField] private float timer;
+    
+    [SerializeField] private float interactCooldown;
+    private float interactTimer;
+    private bool canBeInteracted = true;
 
     void Start()
     {
-        int[] sprites = { 0 };
-        PlantInteraction(Interactable.InteractableState.fire, sprites);
+        //int[] sprites = { 0 };
+        //PlantInteraction(Interactable.InteractableState.fire, sprites);
     }
     
     private void Update()
@@ -40,6 +46,17 @@ public class Interactable : MonoBehaviour
             timer = 0;
             InteractableDeath();
         }
+        interactTimer += Time.deltaTime;
+
+        if (interactTimer > interactCooldown)
+        {
+            interactTimer = 0;
+            canBeInteracted = true;
+        }
+        else
+        {
+            canBeInteracted = false;
+        }
     }
 
 
@@ -51,20 +68,24 @@ public class Interactable : MonoBehaviour
 
     public void PlantInteraction(InteractableState newState, int[] sprites)
     {
-        GetComponent<SpriteRenderer>().sprite = plantSprites[sprites[0]];
-        ChangeInteractableState(newState);
-        if (newState == InteractableState.plant)
+        if (canBeInteracted)
         {
-            StartCoroutine(ChangePlantToDry());
-        }
+            GetComponent<SpriteRenderer>().sprite = plantSprites[sprites[0]];
+            ChangeInteractableState(newState);
+            GameManager.Instance.UpdateScore(scoreToAdd);
+            if (newState == InteractableState.plant)
+            {
+                StartCoroutine(ChangePlantToDry());
+            }
 
-        if (newState == InteractableState.fire || newState == InteractableState.root || (newState == InteractableState.plant && plantIsDry))
-        {
-            startCount = true;
-        }
-        else
-        {
-            startCount = false;
+            if (newState == InteractableState.fire || newState == InteractableState.root || (newState == InteractableState.plant && plantIsDry))
+            {
+                startCount = true;
+            }
+            else
+            {
+                startCount = false;
+            }
         }
     }
     
@@ -73,6 +94,7 @@ public class Interactable : MonoBehaviour
         GetComponent<SpriteRenderer>().sprite = plantSprites[0];
         interactableState = Interactable.InteractableState.soil;
         startCount = false;
+        GameManager.Instance.UpdateScore(-scoreToRest);
     }
 
     private IEnumerator ChangePlantToDry()

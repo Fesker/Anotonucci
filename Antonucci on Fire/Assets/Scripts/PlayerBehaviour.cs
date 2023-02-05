@@ -59,8 +59,11 @@ public class PlayerBehaviour : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        interactable = col.GetComponent<Interactable>();
+        if (col.tag != "Mapa")
+        {
+            interactable = col.GetComponent<Interactable>();
 
-        canInteract = interactable != null;
+            canInteract = interactable != null;
+        }
     }
 }
