@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     [SerializeField]private float dayLightIntensity;
     [SerializeField]private float lightIntensityMin;
     private float maxLightIntensity = 1.0f;
+    private float minLightIntensity = .5f;
     [SerializeField] private float lightIntensityRate = .1f;
     private PlayerMovement playerMovement;
     public Light2D dayLight;
@@ -75,7 +76,7 @@ public class GameManager : MonoBehaviour
 
     IEnumerator GraduallyReduceIntensity()
     {
-        while (dayLight.intensity > 0.01f)
+        while (dayLight.intensity > minLightIntensity)
         {
             float delta =  lightIntensityRate * Time.deltaTime;
             if (delta > dayLightIntensity)
